@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import produto
 import adicionarproduto
-import verificarproduto
+import removerproduto
 
 app = Flask(__name__)
 
@@ -39,7 +39,7 @@ def index():
 def remover_produto():
     nome = request.args.get("nome",None)
     print(nome)
-    if verificarproduto.verificar_produto(nome,arrayprodutos) == True:
+    if removerproduto.remover_produto(nome,arrayprodutos) == True:
         return f"Produto removido"
     else:
         return f"Esse produto não existe"
