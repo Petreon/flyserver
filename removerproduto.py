@@ -1,4 +1,4 @@
-def verificar_produto(nome, arrayprodutos):
+def remover_produto(nome, arrayprodutos):
     print(f"{nome}1")
     for i in range (len(arrayprodutos)):
         print(arrayprodutos[i])
