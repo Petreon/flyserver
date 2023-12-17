@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 arrayprodutos = []
 
-@app.route("/produto/adicionar")
+@app.route("/produto/adicionar/")
 ## /produto/adicionar?nome=alo&preco=300&quantidade=1000
 def adicionar_produto():
     nome = request.args.get("nome",None)
@@ -35,11 +35,12 @@ def index():
 
 
 
-@app.route("/produto/remover")
+@app.route("/produto/remover/")
 def remover_produto():
-    nome = request.args.get("nome")
+    nome = request.args.get("nome",None)
+    print(nome)
     if verificarproduto.verificar_produto(nome,arrayprodutos) == True:
         return f"Produto removido"
     else:
-        f"Esse produto não existe"
+        return f"Esse produto não existe"
 

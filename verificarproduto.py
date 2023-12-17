@@ -1,8 +1,10 @@
 def verificar_produto(nome, arrayprodutos):
+    print(f"{nome}1")
     for i in range (len(arrayprodutos)):
-        if arrayprodutos[i] == nome:
-            arrayprodutos.remove(i)
+        print(arrayprodutos[i])
+        if arrayprodutos[i].nome == nome:
+            arrayprodutos.remove(arrayprodutos[i])
             return True
     else: 
-        False
+        return False
 
