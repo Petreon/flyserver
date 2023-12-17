@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template, url_for
 import produto
 import adicionarproduto
+import removerproduto
 
 app = Flask(__name__)
 
@@ -14,7 +15,6 @@ def adicionar_produto():
     nome = request.args.get("nome",None)
     preco = request.args.get("preco",None)
     quantidade = request.args.get("quantidade", None)
-
     ##implementar função para verificar se todos os argumentos não são None
 
 
@@ -40,8 +40,12 @@ def index():
 def adicionar_page():
     return render_template("adicionar_produtos.html")
 
-## remover o produto com base no nome
-@app.route("/produto/remover")
+@app.route("/produto/remover/")
 def remover_produto():
-    pass
+    nome = request.args.get("nome",None)
+    print(nome)
+    if removerproduto.remover_produto(nome,arrayprodutos) == True:
+        return f"Produto removido"
+    else:
+        return f"Esse produto não existe"
 
