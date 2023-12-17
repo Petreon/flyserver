@@ -9,3 +9,7 @@ testando servidor da aula fly
 ## incializando servidor
 - 1° estar na pasta clonada do git
 - 2° comando: flask --app main.py run --host=0.0.0.0
+
+## rotas do servidor
+### adicionar produto
+- /produto/adicionar?nome=alo&preco=300&quantidade=1000
