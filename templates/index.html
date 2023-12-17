@@ -6,13 +6,23 @@
     <title>Home</title>
 </head>
 <body>
-    {% for produto in produtos %}
+    <div>
+        <h1>adicionar produto</h1>
+        <a href="/adicionar">Adicionar produto</a>
+
+
+    </div>
+    <div>
+        {% for produto in produtos %}
         <p>------------------</p>
         <p>ID: {{produto.id}}</p>
         <p>Nome: {{produto.nome}}</p>
         <p>Preco: {{produto.preco}}</p>
         <p>Quantidade: {{produto.quantidade}}</p>
         <p>------------------</p>
-    {%endfor%}
+        {%endfor%}
+        
+    </div>
+    
 </body>
 </html>

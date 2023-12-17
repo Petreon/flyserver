@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, url_for
 import produto
 import adicionarproduto
 
@@ -7,9 +7,10 @@ app = Flask(__name__)
 
 arrayprodutos = []
 
-@app.route("/produto/adicionar")
+@app.route("/produto/adicionar/")
 ## /produto/adicionar?nome=alo&preco=300&quantidade=1000
 def adicionar_produto():
+    
     nome = request.args.get("nome",None)
     preco = request.args.get("preco",None)
     quantidade = request.args.get("quantidade", None)
@@ -25,7 +26,8 @@ def adicionar_produto():
 
     print(arrayprodutos)
 
-    return f"<h1>{nome,preco,quantidade}</h1>"
+    return jsonify("produtocriado")
+    
 
 ##criar a rota home que 
 
@@ -34,7 +36,11 @@ def index():
     return render_template("index.html",produtos=arrayprodutos)
 
 
+@app.route("/adicionar")
+def adicionar_page():
+    return render_template("adicionar_produtos.html")
 
+## remover o produto com base no nome
 @app.route("/produto/remover")
 def remover_produto():
     pass
